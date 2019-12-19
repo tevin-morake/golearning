@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>State Your Name</title>
+</head>
+<body>
+    {{if .}} 
+        <main>
+            <h1>You are being judged before the ScriptWhiz API high court.</h1>
+            {{ range $key, $value := .}} 
+                <p><strong>{{$key}}</strong></p>
+                <ul>
+                   {{range $value}}
+                    <li><em>{{.}}</em></li>
+                   {{end}}
+                </ul>
+            {{end}}
+        </main>
+    {{end}}
+
+    <form action="/" method="POST">
+        <input type="text" name="fName" placeholder="first name" autofocus autocomplete="off">
+        <input type="submit" name="btn" value="State Your Name Creature">
+    </form>
+</body>
+</html>
