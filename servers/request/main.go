@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"text/template"
 )
@@ -13,6 +14,10 @@ type CoolDrink struct {
 var tpl *template.Template
 
 func (c CoolDrink) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Fprintf(w, "The Kingdom of Coke has failed to please your thirst sire : "+err.Error())
+		return
+	}
 	tpl.ExecuteTemplate(w, "simpleform.gohtml", r.Form)
 }
 
