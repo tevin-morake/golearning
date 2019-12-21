@@ -24,10 +24,14 @@ func (c villain) ServeHTTP(output http.ResponseWriter, input *http.Request) {
 		return
 	}
 
-	fInfo, err := f.Stat()
-	if err != nil {
-		fmt.Fprintln(output, "<h1>Something definitely went wrong</h1>")
-		return
-	}
-	http.ServeContent(output, input, fInfo.Name(), fInfo.ModTime(), f)
+	/*
+		 * Serve Content is not necessary for me. It's used in the e tag according to Todd.
+		 Beats me. I'll use ServeFiles. Read the docs to understand benefit of ServeFiles over io.Copy etc
+		fInfo, err := f.Stat()
+		if err != nil {
+			fmt.Fprintln(output, "<h1>Something definitely went wrong</h1>")
+			return
+		}
+		http.ServeContent(output, input, fInfo.Name(), fInfo.ModTime(), f) */
+	http.ServeFile(output, input, "img/league.png")
 }
