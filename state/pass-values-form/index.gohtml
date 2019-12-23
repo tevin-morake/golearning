@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GoPher101</title>
+</head>
+<body>
+    
+   <form  method="POST">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="first">
+        <br>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="last">
+        <br>
+        <label for="Age">Age</label>
+        <input type="number" id="age0" name="age">
+        <br>
+        <label for="subscribed">Subscribed</label>
+        <input type="checkbox" name="subscribed-bool" id="subscribed">
+        <br>
+        <input type="submit">
+ </form>
+ <br>
+
+ <h1>First : {{.FirstName}}</h1>
+ <h1>Last : {{.LastName}}</h1>
+ <h1>Age : {{.Age}}</h1>
+ <h1>Subscribed : {{.Subscribed}}</h1>
+ 
+</body>
+</html>
